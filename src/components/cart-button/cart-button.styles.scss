@@ -1,0 +1,10 @@
+.signOutBtn {
+    margin: 10px 0px;
+    cursor: pointer;
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 6px 20px;
+    &:hover {
+        background: rgba(233, 226, 226, 0.9);
+    }
+}

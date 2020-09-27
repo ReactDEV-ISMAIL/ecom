@@ -1,0 +1,51 @@
+.userMenu {
+    box-shadow: 0px 0px 20px gray;
+    background: white;
+    position: fixed;
+    z-index: 1;
+    width: 350px;
+    top: 90px;
+    right: 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .userPhotoDetail {
+        margin-top: 40px;
+        background-size: 80px 80px;
+        border: 0;
+        border-radius: 80%;
+        display: block;
+        position: relative;
+        height: 80px;
+        width: 80px;
+        z-index: 0;
+    }
+    .userName {
+        font-weight: 600;
+        font-size: 30px;
+    }
+    .userEmail {
+        color: gray;
+        font-weight: 400;
+        font-size: 22px;
+    }
+
+    .signOutBtnContainer {
+        margin: 20px 0px 0px 0px;
+        width: 100%;
+        border-top: 0.1px solid rgb(224, 224, 224);
+        border-bottom: 0.1px solid rgb(224, 224, 224);
+        display: flex;
+        justify-content: center;
+    }
+    .privacyTermsContainer {
+        margin-bottom: 20px;
+        color: gray;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+}
