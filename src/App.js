@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.action";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
+import styled from "styled-components";
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
@@ -39,9 +40,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         <Header />
-        <div style={{ paddingTop: "100px" }}>
+        <Content>
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
@@ -59,11 +60,15 @@ class App extends React.Component {
               }
             />
           </Switch>
-        </div>
-      </div>
+        </Content>
+      </Fragment>
     );
   }
 }
+
+const Content = styled.div`
+  padding-top: 100px;
+`;
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

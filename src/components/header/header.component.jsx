@@ -1,6 +1,4 @@
 import React, { Fragment, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import UserMenu from "../user-menu/user-menu.component";
 import { connect } from "react-redux";
@@ -13,6 +11,12 @@ import { selectCartHidden } from "../../redux/cart/cart.selectors";
 import { selectMenuHidden } from "../../redux/user-menu/menu.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
+import {
+  HeaderContainer,
+  LogoContainer,
+  OptionLink,
+  OptionsContainer,
+} from "./header.styles";
 
 const Header = ({ currentUser, ...otherProps }) => {
   const menuRef = useRef(null);
@@ -46,22 +50,14 @@ const Header = ({ currentUser, ...otherProps }) => {
 
   return (
     <Fragment>
-      <div className="header">
-        <Link className="logo-container" to="/">
-          <Logo className="logo"></Logo>
-        </Link>
-        <div className="options">
-          <Link className="option" to="/shop">
-            SHOP
-          </Link>
-          <Link className="option" to="/shop">
-            CONTACT
-          </Link>
-          {!currentUser && (
-            <Link className="option" to="/signin">
-              SIGN IN
-            </Link>
-          )}
+      <HeaderContainer>
+        <LogoContainer to="/">
+          <Logo />
+        </LogoContainer>
+        <OptionsContainer>
+          <OptionLink to="/shop">SHOP</OptionLink>
+          <OptionLink to="/shop">CONTACT</OptionLink>
+          {!currentUser && <OptionLink to="/signin">SIGN IN</OptionLink>}
           {currentUser && (
             <Fragment>
               <CartIcon
@@ -75,8 +71,8 @@ const Header = ({ currentUser, ...otherProps }) => {
               />
             </Fragment>
           )}
-        </div>
-      </div>
+        </OptionsContainer>
+      </HeaderContainer>
       {otherProps.menuHidden && currentUser && (
         <UserMenu
           currentUser={currentUser}
